@@ -8,6 +8,7 @@ import java.util.List;
 
 import fi.ipsc_results_uploader.StageScoreSheet;
 
+// Reads score data from a WinMSS .mdb file (Microsoft Access database)
 public class StageScoreService {
 	
 	Connection connection;

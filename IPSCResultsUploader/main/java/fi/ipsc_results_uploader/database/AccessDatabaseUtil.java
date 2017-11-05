@@ -9,6 +9,7 @@ import java.util.List;
 
 import fi.ipsc_results_uploader.Competitor;
 
+// Methods for using a Ucanaccess connection to a Microsoft Access database file (.mdb).
 public class AccessDatabaseUtil {
 	public static Connection connectToAccessDatabase() {
 		Connection connection = null;

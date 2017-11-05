@@ -3,7 +3,6 @@ package fi.ipsc_results_uploader;
 import java.util.List;
 
 import fi.ipsc_results_uploader.GUI.MainWindow;
-import fi.ipsc_results_uploader.database.MatchService;
 import fi.ipsc_results_uploader.database.StageScoreService;
 import fi.ipsc_results_uploader.web.SSIService;
 
@@ -18,7 +17,8 @@ public class IPSCResultsUploader {
 		System.out.println(sheets.size() + " scoresheets for match 4");
 		System.out.println("Sending JSON");
 		SSIService ssi = new SSIService();
-		ssi.sendScoreSheets("http://shootnscoreit.com/api/alive/", sheets);
+		ssi.sendScoreSheets("https://shootnscoreit.com/api/myself/", sheets, "jarvirta1@gmail.com",
+				"HubbabubbaShootnscoreit1");
 		// ssi.sendScoreSheets("https://requestb.in/1bs7lpa1", sheets);
 		// RESULT in : https://requestb.in/1bs7lpa1?inspect
 	}
