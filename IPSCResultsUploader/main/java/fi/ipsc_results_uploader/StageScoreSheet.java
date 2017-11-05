@@ -1,32 +1,61 @@
 package fi.ipsc_results_uploader;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class StageScoreSheet {
-
-	@JsonProperty("match_id_TEST")
-	private int matchId;
-	private int stageId;
-	private int competitorId;
-	private int aHits;
-	private int bHits;
-	private int cHits;
-	private int dHits;
-	private int misses;
-	private int penalties;
-	private int procedurals;
-	private double time;
-	private double hitFactor;
-	private double finalScore;
 	
-	public int getMatchId() {
-		return matchId;
-	}
-
-	public void setMatchId(int matchId) {
-		this.matchId = matchId;
-	}
-
+	@JsonProperty("model")
+	private String ssiModel = "match_ipsc.ipscscorecard";
+	@JsonIgnore
+	private int primaryKey;
+	@JsonProperty("stage")
+	private int stageId;
+	@JsonProperty("competitor")
+	private int competitorId;
+	@JsonProperty("ascore")
+	private int aHits;
+	@JsonProperty("bscore")
+	private int bHits;
+	@JsonProperty("cscore")
+	private int cHits;
+	@JsonProperty("dscore")
+	private int dHits;
+	@JsonProperty("miss")
+	private int misses = 0;
+	@JsonProperty("penalty")
+	private int penalties = 0;
+	@JsonProperty("deductions")
+	private int deductedPoints = 0;
+	@JsonProperty("spec_penalty")
+	private int specialPenalty;
+	@JsonIgnore
+	private double time;
+	@JsonProperty("time")
+	private String timeString;
+	// TODO: Reasons for disqualification. SSI API page 60 and WinMSS 
+	// database table "tblTypeDisqualifyRule"
+	@JsonProperty("dq_reason")
+	private String disqualificationReason = "no";
+	@JsonProperty("procedural")
+	private int procedurals;
+	@JsonProperty("zeroed")
+	boolean scoresZeroedForStage = false;
+	private String comment = "";
+	
+	
+	// Set default values to required fields pf_correction, evt, tnh, tnn and tne. These 
+	//	are not used. See SSI API pages 56 and 62.
+	@JsonProperty("pf_correction")
+	private int powerFactorCorrection = 0;
+	
+	@JsonProperty("tnh")
+	private int targetNotHit = 0;
+	@JsonProperty("tnn")
+	private int targetNotNeutralized = 0;
+	@JsonProperty("tne")
+	private int targetNotEngaged = 0;
+	
 	public int getStageId() {
 		return stageId;
 	}
@@ -81,7 +110,9 @@ public class StageScoreSheet {
 	}
 
 	public void setMisses(int misses) {
+		deductedPoints -= this.misses * 10;		
 		this.misses = misses;
+		deductedPoints += misses * 10;
 	}
 
 	public int getPenalties() {
@@ -89,7 +120,9 @@ public class StageScoreSheet {
 	}
 
 	public void setPenalties(int penalties) {
+		deductedPoints -= this.penalties * 10;
 		this.penalties = penalties;
+		deductedPoints += penalties * 10;
 	}
 
 	public int getProcedurals() {
@@ -100,27 +133,110 @@ public class StageScoreSheet {
 		this.procedurals = procedurals;
 	}
 
+	public int getPrimaryKey() {
+		return primaryKey;
+	}
+
+	public void setPrimaryKey(int primaryKey) {
+		this.primaryKey = primaryKey;
+	}
+
+	public int getSpecialPenalty() {
+		return specialPenalty;
+	}
+
+	public void setSpecialPenalty(int specialPenalty) {
+		this.specialPenalty = specialPenalty;
+	}
+
+	public String getDisqualificationReason() {
+		return disqualificationReason;
+	}
+
+	public void setDisqualificationReason(String disqualificationReason) {
+		this.disqualificationReason = disqualificationReason;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public boolean isScoresZeroedForStage() {
+		return scoresZeroedForStage;
+	}
+
+	public void setScoresZeroedForStage(boolean scoresZeroedForStage) {
+		this.scoresZeroedForStage = scoresZeroedForStage;
+	}
+
+	public int getDeductedPoints() {
+		return deductedPoints;
+	}
+
+	public void setDeductedPoints(int deductedPoints) {
+		this.deductedPoints = deductedPoints;
+	}
+
+	public String getSsiModel() {
+		return ssiModel;
+	}
+
+	public void setSsiModel(String ssiModel) {
+		this.ssiModel = ssiModel;
+	}
+
 	public double getTime() {
 		return time;
 	}
 
 	public void setTime(double time) {
 		this.time = time;
+		this.timeString = Double.toString(time);
 	}
 
-	public double getHitFactor() {
-		return hitFactor;
+	public String getTimeString() {
+		return timeString;
 	}
 
-	public void setHitFactor(double hitFactor) {
-		this.hitFactor = hitFactor;
+	public void setTimeString(String timeString) {
+		this.timeString = timeString;
 	}
 
-	public double getFinalScore() {
-		return finalScore;
+	public int getPowerFactorCorrection() {
+		return powerFactorCorrection;
 	}
 
-	public void setFinalScore(double finalScore) {
-		this.finalScore = finalScore;
+	public void setPowerFactorCorrection(int powerFactorCorrection) {
+		this.powerFactorCorrection = powerFactorCorrection;
+	}
+
+	public int getTargetNotHit() {
+		return targetNotHit;
+	}
+
+	public void setTargetNotHit(int targetNotHit) {
+		this.targetNotHit = targetNotHit;
+	}
+
+	public int getTargetNotNeutralized() {
+		return targetNotNeutralized;
+	}
+
+	public void setTargetNotNeutralized(int targetNotNeutralized) {
+		this.targetNotNeutralized = targetNotNeutralized;
+	}
+
+	public int getTargetNotEngaged() {
+		return targetNotEngaged;
+	}
+
+	public void setTargetNotEngaged(int targetNotEngaged) {
+		this.targetNotEngaged = targetNotEngaged;
 	}
 }

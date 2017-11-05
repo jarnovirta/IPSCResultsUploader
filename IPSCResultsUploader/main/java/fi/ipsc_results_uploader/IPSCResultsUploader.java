@@ -17,7 +17,7 @@ public class IPSCResultsUploader {
 		System.out.println(sheets.size() + " scoresheets for match 4");
 		System.out.println("Sending JSON");
 		SSIService ssi = new SSIService();
-		ssi.sendScoreSheets("https://shootnscoreit.com/api/myself/", sheets, "jarvirta1@gmail.com",
+		ssi.sendScoreSheets(sheets, "jarvirta1@gmail.com",
 				"HubbabubbaShootnscoreit1");
 		// ssi.sendScoreSheets("https://requestb.in/1bs7lpa1", sheets);
 		// RESULT in : https://requestb.in/1bs7lpa1?inspect

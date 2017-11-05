@@ -23,19 +23,17 @@ public class StageScoreService {
 			resultSet = statement.executeQuery("SELECT * FROM tblMatchStageScore WHERE MatchId = " + matchId);
 			while (resultSet.next()) {
 				StageScoreSheet sheet = new StageScoreSheet();
-				sheet.setMatchId(Integer.parseInt(resultSet.getString(1)));
-				sheet.setStageId(Integer.parseInt(resultSet.getString(2)));
-				sheet.setCompetitorId(Integer.parseInt(resultSet.getString(3)));
-				sheet.setaHits(Integer.parseInt(resultSet.getString(4)));
-				sheet.setbHits(Integer.parseInt(resultSet.getString(5)));
-				sheet.setcHits(Integer.parseInt(resultSet.getString(6)));
-				sheet.setdHits(Integer.parseInt(resultSet.getString(7)));
-				sheet.setMisses(Integer.parseInt(resultSet.getString(8)));
-				sheet.setPenalties(Integer.parseInt(resultSet.getString(9)));
-				sheet.setProcedurals(Integer.parseInt(resultSet.getString(10)));
-				sheet.setTime(Double.parseDouble(resultSet.getString(11)));
-				sheet.setHitFactor(Double.parseDouble(resultSet.getString(19)));
-				sheet.setFinalScore(Integer.parseInt(resultSet.getString(20)));
+				sheet.setStageId(resultSet.getInt(2));
+				sheet.setCompetitorId(resultSet.getInt(3));
+				sheet.setaHits(resultSet.getInt(4));
+				sheet.setbHits(resultSet.getInt(5));
+				sheet.setcHits(resultSet.getInt(6));
+				sheet.setdHits(resultSet.getInt(7));
+				sheet.setMisses(resultSet.getInt(8));
+				sheet.setPenalties(resultSet.getInt(9));
+				sheet.setProcedurals(resultSet.getInt(10));
+				sheet.setTime(resultSet.getDouble(11));
+				sheet.setScoresZeroedForStage(resultSet.getBoolean(12));
 				stageScoreSheets.add(sheet);
 			}
 			resultSet.close();
