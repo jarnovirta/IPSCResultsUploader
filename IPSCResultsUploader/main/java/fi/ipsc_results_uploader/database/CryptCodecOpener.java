@@ -1,4 +1,4 @@
-package fi.IPSCResultsUploader.Database;
+package fi.ipsc_results_uploader.database;
 
 import java.io.File;
 import java.io.IOException;

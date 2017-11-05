@@ -1,4 +1,4 @@
-package fi.IPSCResultsUploader.Database;
+package fi.ipsc_results_uploader.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,14 +7,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fi.IPSCResultsUploader.Competitor;
+import fi.ipsc_results_uploader.Competitor;
 
 public class AccessDatabaseUtil {
 	public static Connection connectToAccessDatabase() {
 		Connection connection = null;
 		try {
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-			String dbConnectionString = "jdbc:ucanaccess://WinMSS.mdb;jackcessOpener=fi.IPSCResultsUploader.Database.CryptCodecOpener";
+			String dbConnectionString = "jdbc:ucanaccess://WinMSS.mdb;jackcessOpener=fi.ipsc_results_uploader.database.CryptCodecOpener";
 			connection = DriverManager.getConnection(dbConnectionString, null, null);
 		} catch (Exception e) {
 			e.printStackTrace();

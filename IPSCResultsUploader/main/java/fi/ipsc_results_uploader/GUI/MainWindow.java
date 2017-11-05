@@ -1,4 +1,4 @@
-package fi.IPSCResultsUploader.GUI;
+package fi.ipsc_results_uploader.GUI;
 
 import java.awt.Button;
 import java.awt.Frame;

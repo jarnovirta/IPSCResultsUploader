@@ -1,4 +1,4 @@
-package fi.IPSCResultsUploader.Database;
+package fi.ipsc_results_uploader.database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,8 +6,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fi.IPSCResultsUploader.Competitor;
-import fi.IPSCResultsUploader.Match;
+import fi.ipsc_results_uploader.Competitor;
+import fi.ipsc_results_uploader.Match;
 
 public class MatchService {
 	Connection connection;
@@ -21,7 +21,6 @@ public class MatchService {
 		AccessDatabaseUtil.closeConnecion(connection);
 		return null;
 	}
-	
 	
 	public List<Competitor> findAllCompetitors() {
 		Statement statement = null;

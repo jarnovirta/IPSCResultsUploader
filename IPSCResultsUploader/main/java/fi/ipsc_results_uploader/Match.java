@@ -1,4 +1,4 @@
-package fi.IPSCResultsUploader;
+package fi.ipsc_results_uploader;
 
 public class Match {
 	private int matchId;
