@@ -2,8 +2,8 @@ package fi.ipsc_results_uploader;
 
 import java.util.List;
 
-import fi.ipsc_results_uploader.GUI.MainWindow;
 import fi.ipsc_results_uploader.database.StageScoreService;
+import fi.ipsc_results_uploader.gui.MainWindow;
 import fi.ipsc_results_uploader.web.SSIService;
 
 public class IPSCResultsUploader {
