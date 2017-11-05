@@ -7,7 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fi.ipsc_results_uploader.Competitor;
+import fi.ipsc_results_uploader.domain.Competitor;
+
 
 // Methods for using a Ucanaccess connection to a Microsoft Access database file (.mdb).
 public class AccessDatabaseUtil {

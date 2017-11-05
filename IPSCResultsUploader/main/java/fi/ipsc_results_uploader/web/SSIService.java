@@ -13,7 +13,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import fi.ipsc_results_uploader.StageScoreSheet;
+import fi.ipsc_results_uploader.domain.StageScoreSheet;
 
 public class SSIService {
 	public HttpResponse sendScoreSheets(List<StageScoreSheet> sheets, String userName, 

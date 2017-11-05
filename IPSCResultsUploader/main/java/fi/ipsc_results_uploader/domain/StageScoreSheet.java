@@ -1,4 +1,4 @@
-package fi.ipsc_results_uploader;
+package fi.ipsc_results_uploader.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

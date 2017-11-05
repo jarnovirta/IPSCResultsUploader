@@ -1,4 +1,4 @@
-package fi.ipsc_results_uploader;
+package fi.ipsc_results_uploader.domain;
 
 public class Stage {
 	int stageId;

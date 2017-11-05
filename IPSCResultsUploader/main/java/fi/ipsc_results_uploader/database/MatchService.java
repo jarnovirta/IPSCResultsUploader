@@ -6,8 +6,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fi.ipsc_results_uploader.Competitor;
-import fi.ipsc_results_uploader.Match;
+import fi.ipsc_results_uploader.domain.Competitor;
+import fi.ipsc_results_uploader.domain.Match;
 
 public class MatchService {
 	Connection connection;
