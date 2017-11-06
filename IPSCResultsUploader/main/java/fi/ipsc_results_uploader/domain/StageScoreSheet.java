@@ -8,11 +8,15 @@ public class StageScoreSheet {
 	@JsonProperty("model")
 	private String ssiModel = "match_ipsc.ipscscorecard";
 	@JsonIgnore
-	private int primaryKey;
+	private int winMssPrimaryKey;
+	@JsonIgnore
+	private int winMssStageId;
 	@JsonProperty("stage")
-	private int stageId;
+	private int ssiStagePrimaryKey;
 	@JsonProperty("competitor")
-	private int competitorId;
+	private int competitorSsiPrimaryKey;
+	@JsonIgnore	
+	private int winMssMemberId;
 	@JsonProperty("ascore")
 	private int aHits;
 	@JsonProperty("bscore")
@@ -56,21 +60,29 @@ public class StageScoreSheet {
 	@JsonProperty("tne")
 	private int targetNotEngaged = 0;
 	
-	public int getStageId() {
-		return stageId;
+
+	public int getWinMssStageId() {
+		return winMssStageId;
 	}
 
-	public void setStageId(int stageId) {
-		this.stageId = stageId;
+	public void setWinMssStageId(int winMssStageId) {
+		this.winMssStageId = winMssStageId;
 	}
 
-
-	public int getCompetitorId() {
-		return competitorId;
+	public int getSsiStagePrimaryKey() {
+		return ssiStagePrimaryKey;
 	}
 
-	public void setCompetitorId(int competitorId) {
-		this.competitorId = competitorId;
+	public void setSsiStagePrimaryKey(int ssiStagePrimaryKey) {
+		this.ssiStagePrimaryKey = ssiStagePrimaryKey;
+	}
+
+	public int getCompetitorSsiPrimaryKey() {
+		return competitorSsiPrimaryKey;
+	}
+
+	public void setCompetitorSsiPrimaryKey(int competitorSsiPrimaryKey) {
+		this.competitorSsiPrimaryKey = competitorSsiPrimaryKey;
 	}
 
 	public int getaHits() {
@@ -133,12 +145,12 @@ public class StageScoreSheet {
 		this.procedurals = procedurals;
 	}
 
-	public int getPrimaryKey() {
-		return primaryKey;
+	public int getWinMssPrimaryKey() {
+		return winMssPrimaryKey;
 	}
 
-	public void setPrimaryKey(int primaryKey) {
-		this.primaryKey = primaryKey;
+	public void setWinMssPrimaryKey(int winMssPrimaryKey) {
+		this.winMssPrimaryKey = winMssPrimaryKey;
 	}
 
 	public int getSpecialPenalty() {
@@ -160,8 +172,6 @@ public class StageScoreSheet {
 	public String getComment() {
 		return comment;
 	}
-
-
 
 	public void setComment(String comment) {
 		this.comment = comment;
@@ -238,5 +248,13 @@ public class StageScoreSheet {
 
 	public void setTargetNotEngaged(int targetNotEngaged) {
 		this.targetNotEngaged = targetNotEngaged;
+	}
+
+	public int getWinMssMemberId() {
+		return winMssMemberId;
+	}
+
+	public void setWinMssMemberId(int winMssMemberId) {
+		this.winMssMemberId = winMssMemberId;
 	}
 }

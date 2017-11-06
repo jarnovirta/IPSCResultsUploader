@@ -23,8 +23,8 @@ public class StageScoreService {
 			resultSet = statement.executeQuery("SELECT * FROM tblMatchStageScore WHERE MatchId = " + matchId);
 			while (resultSet.next()) {
 				StageScoreSheet sheet = new StageScoreSheet();
-				sheet.setStageId(resultSet.getInt(2));
-				sheet.setCompetitorId(resultSet.getInt(3));
+				sheet.setWinMssStageId(resultSet.getInt(2));
+				sheet.setWinMssMemberId(resultSet.getInt(3));
 				sheet.setaHits(resultSet.getInt(4));
 				sheet.setbHits(resultSet.getInt(5));
 				sheet.setcHits(resultSet.getInt(6));

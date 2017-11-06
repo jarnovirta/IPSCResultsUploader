@@ -1,0 +1,19 @@
+First name: test1
+Last name: shooter1
+email: testshooter1@gmail.com
+password: testshooter1
+gender: male
+status: approved
+
+etc. Last shooter is testshooter4
+
+shooter 2 gender : female, status: waiting list
+shooter 3 status: pending
+shooter 4 status: approved, gender: none of your business, shoot in prematch
+
+
+Non-registered regular test user:  
+	- first name: testuser
+	- last name: notRegistered
+	- email: testnotreg@gmail.com
+	- password testnotreg
